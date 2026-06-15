@@ -1,111 +1,146 @@
 import Container from "@/components/Container";
+import Link from "next/link";
+import FeaturedWork from "@/components/FeaturedWork";
 
 export default function Home() {
   return (
     <main>
-      {/* Hero */}
-      <section className="min-h-[80vh] flex items-center py-24">
+{/* Hero */}
+      <section className="min-h-[90vh] flex items-end pb-24 pt-32">
         <Container>
-          <h1 className="max-w-5xl text-5xl md:text-7xl font-medium leading-tight">
+          <h1 className="text-[18vw] font-medium leading-[0.9] tracking-tight">
+            Dishoom<br />Studios.
+          </h1>
+          <p className="mt-8 max-w-xl text-base opacity-50 leading-relaxed">
             Building distinctive brands and experiences through strategy,
             design and storytelling.
-          </h1>
-
-          <p className="mt-12 text-sm uppercase tracking-widest">
-            Selected Work ↓
           </p>
         </Container>
       </section>
+      
 
       {/* Selected Work */}
-      <section className="py-32 border-t">
+      <section className="py-32 border-t border-white/10">
         <Container>
-          <h2 className="text-3xl font-medium mb-12">Selected Work</h2>
-
-          <div className="space-y-6">
-            <p>A One Advisory</p>
-            <p>Goa Ironman</p>
-            <p>Harvest School</p>
-            <p>Tata Steel Marathon</p>
-            <p>Trail O Thon</p>
-            <p>CNG Cycling Jersey</p>
+          <div className="flex items-end justify-between mb-3">
+            <p className="text-xs uppercase tracking-widest opacity-40">
+              Selected Work
+            </p>
+            <Link
+              href="/work"
+              className="text-xs opacity-40 hover:opacity-100 transition-opacity"
+            >
+              View all →
+            </Link>
           </div>
+          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-16">
+            Work.
+          </h2>
         </Container>
+
+        <FeaturedWork />
       </section>
 
       {/* Studio */}
-      <section className="py-32 border-t">
+      <section className="py-32 border-t border-white/10">
         <Container>
-          <h2 className="text-3xl font-medium mb-8">Studio</h2>
+          <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
+            Studio
+          </p>
+          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-16">
+            Who we are.
+          </h2>
 
-          <p className="max-w-3xl text-xl leading-relaxed">
+          <p className="max-w-2xl text-xl leading-relaxed opacity-80">
             Dishoom Studios creates brands, digital experiences and apparel
             systems that help organisations stand apart.
           </p>
         </Container>
       </section>
 
-      {/* Services */}
-      <section className="py-32 border-t">
+      {/* Capabilities */}
+      <section className="py-32 border-t border-white/10">
         <Container>
-          <h2 className="text-3xl font-medium mb-12">Services</h2>
+          <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
+            Capabilities
+          </p>
+          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-16">
+            What we do.
+          </h2>
 
-          <div className="space-y-4 text-xl">
+          <div className="space-y-4 text-2xl opacity-80">
             <p>Brand Strategy</p>
-            <p>Identity Design</p>
-            <p>Web Design</p>
+            <p>Identity Systems</p>
             <p>Employer Branding</p>
-            <p>Apparel & Merchandise</p>
+            <p>Digital Experiences</p>
+            <p>Apparel & Merchandise Design</p>
           </div>
         </Container>
       </section>
 
       {/* Featured Case Study */}
-      <section className="py-32 border-t">
+      <section className="py-32 border-t border-white/10">
         <Container>
-          <h2 className="text-3xl font-medium mb-12">
+          <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
             Featured Case Study
+          </p>
+          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-6">
+            A One Advisory.
           </h2>
 
-          <h3 className="text-4xl font-medium mb-4">
-            A One Advisory
-          </h3>
-
-          <p className="max-w-2xl text-xl mb-8">
+          <p className="max-w-2xl text-xl opacity-60 mb-12">
             Strategic brand refresh for a credit rating advisory firm.
           </p>
 
-          <button className="border px-6 py-3">
+          <Link
+            href="/work/a-one-advisory"
+            className="text-sm uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
+          >
             View Case Study →
-          </button>
+          </Link>
         </Container>
       </section>
 
       {/* Insights */}
-      <section className="py-32 border-t">
+      <section className="py-32 border-t border-white/10">
         <Container>
-          <h2 className="text-3xl font-medium mb-12">
-            Latest Thinking
+          <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
+            Insights
+          </p>
+          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-16">
+            Latest Thinking.
           </h2>
 
-          <div className="space-y-6">
-            <p>Why strong brands outperform strong marketing.</p>
-            <p>Designing for trust in financial services.</p>
-            <p>What makes a memorable event identity.</p>
+          <div className="space-y-8">
+            <p className="text-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+              Why strong brands outperform strong marketing.
+            </p>
+            <p className="text-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+              Designing for trust in financial services.
+            </p>
+            <p className="text-xl opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+              What makes a memorable event identity.
+            </p>
           </div>
         </Container>
       </section>
 
       {/* Contact */}
-      <section className="py-32 border-t">
+      <section className="py-32 border-t border-white/10">
         <Container>
-          <h2 className="text-5xl font-medium mb-6">
+          <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
+            Contact
+          </p>
+          <h2 className="text-6xl md:text-[8vw] font-medium tracking-tight leading-[1] mb-12">
             Have a project in mind?
           </h2>
 
-          <p className="text-xl">
-            Let's talk.
-          </p>
+          <Link
+            href="/contact"
+            className="text-sm uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
+          >
+            Let's talk →
+          </Link>
         </Container>
       </section>
     </main>

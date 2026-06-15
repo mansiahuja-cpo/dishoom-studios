@@ -8,22 +8,20 @@ export default function ProjectList() {
         <Link
           key={project.slug}
           href={`/work/${project.slug}`}
-          className="group block py-8"
+          className="group flex items-center justify-between py-8 md:py-10"
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-2xl md:text-4xl font-medium">
-                {project.title}
-              </h3>
-              <p className="mt-2 text-sm opacity-60">
-                {project.category}
-              </p>
-            </div>
-
-            <span className="text-sm opacity-50">
-              {project.year}
-            </span>
+          <div>
+            <h3 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1] mb-2 group-hover:opacity-60 transition-opacity duration-300">
+              {project.title}
+            </h3>
+            <p className="text-xs uppercase tracking-widest opacity-40">
+              {project.category}
+            </p>
           </div>
+
+          <span className="text-xs opacity-30 group-hover:opacity-60 transition-opacity">
+            {project.year}
+          </span>
         </Link>
       ))}
     </div>

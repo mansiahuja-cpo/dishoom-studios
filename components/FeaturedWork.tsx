@@ -1,0 +1,33 @@
+import Link from "next/link";
+import Image from "next/image";
+import { projects } from "@/data/projects";
+
+export default function FeaturedWork() {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/10">
+      {projects.map((project) => (
+        <Link
+          key={project.slug}
+          href={`/work/${project.slug}`}
+          className="group relative block overflow-hidden bg-black"
+        >
+          <div className="relative h-[30vw] md:h-[25vw] overflow-hidden">
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+            />
+          </div>
+
+          <div className="p-4 md:p-6">
+            <p className="text-xs uppercase tracking-wider opacity-50 mb-1">
+              {project.category}
+            </p>
+            <h3 className="text-sm md:text-base font-medium">{project.title}</h3>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+}

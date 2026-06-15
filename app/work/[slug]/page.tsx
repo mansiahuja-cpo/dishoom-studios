@@ -41,18 +41,20 @@ export default async function CaseStudy({
 
   return (
     <main className="pb-24">
-      <FullWidthImage
-        src={project.coverImage}
-        alt={`${project.title} — cover`}
-      />
-
       <Container>
         <Hero
           category={project.category}
           title={project.title}
           summary={study.summary}
         />
+      </Container>
 
+      <FullWidthImage
+        src={project.coverImage}
+        alt={`${project.title} — cover`}
+      />
+
+      <Container>
         <TextBlock title="Challenge" content={study.challenge} />
         <TextBlock title="Insight" content={study.insight} />
         <TextBlock title="Approach" content={study.approach} />
