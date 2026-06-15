@@ -1,0 +1,56 @@
+export const projects = [
+  {
+    slug: "a-one-advisory",
+    title: "A One Advisory",
+    category: "Brand Identity",
+    year: "2026",
+    summary:
+      "Strategic brand refresh for a credit rating advisory firm.",
+    featured: true,
+  },
+  {
+    slug: "goa-ironman",
+    title: "Goa Ironman",
+    category: "Performance Apparel",
+    year: "2025",
+    summary:
+      "Race apparel system designed for endurance athletes.",
+    featured: true,
+  },
+  {
+    slug: "harvest-school",
+    title: "Harvest School",
+    category: "School Wardrobe System",
+    year: "2026",
+    summary:
+      "Uniform and wardrobe collection designed for modern school life.",
+    featured: true,
+  },
+  {
+    slug: "tata-steel-marathon",
+    title: "Tata Steel Marathon",
+    category: "Event Branding & Merchandise",
+    year: "2025",
+    summary:
+      "Event apparel and visual identity for one of India's leading marathons.",
+    featured: true,
+  },
+  {
+    slug: "trail-o-thon",
+    title: "Trail O Thon",
+    category: "Event Branding",
+    year: "2026",
+    summary:
+      "Merchandise and event branding system for a trail running community.",
+    featured: true,
+  },
+  {
+    slug: "cng-cycling-jersey",
+    title: "CNG Cycling Jersey",
+    category: "Performance Apparel",
+    year: "2024",
+    summary:
+      "Custom cycling jersey inspired by doodle art and community culture.",
+    featured: true,
+  },
+];
