@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ededed;
+  --background: #111111;
+  --background-alt: #0a0a0a;
+  --foreground: #ffffff;
+  --accent: #F5E000;
+  --muted: rgba(255, 255, 255, 0.4);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -18,8 +26,20 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
 }
