@@ -5,6 +5,9 @@ import { caseStudies } from "@/data/case-studies";
 import Hero from "@/components/case-study/Hero";
 import TextBlock from "@/components/case-study/TextBlock";
 import FullWidthImage from "@/components/case-study/FullWidthImage";
+import ImageShowcase from "@/components/case-study/ImageShowcase";
+import Deliverables from "@/components/case-study/Deliverables";
+import NextProject from "@/components/case-study/NextProject";
 
 export default async function CaseStudy({
   params,
@@ -13,7 +16,8 @@ export default async function CaseStudy({
 }) {
   const { slug } = await params;
 
-  const project = projects.find((p) => p.slug === slug);
+  const projectIndex = projects.findIndex((p) => p.slug === slug);
+  const project = projects[projectIndex];
 
   if (!project) {
     return (
@@ -33,11 +37,13 @@ export default async function CaseStudy({
     );
   }
 
+  const nextProject = projects[(projectIndex + 1) % projects.length];
+
   return (
     <main className="pb-24">
       <FullWidthImage
         src={project.coverImage}
-        alt={`${project.title} — cover image`}
+        alt={`${project.title} — cover`}
       />
 
       <Container>
@@ -50,31 +56,21 @@ export default async function CaseStudy({
         <TextBlock title="Challenge" content={study.challenge} />
         <TextBlock title="Insight" content={study.insight} />
         <TextBlock title="Approach" content={study.approach} />
+      </Container>
 
-        {study.images && study.images.length > 0 && (
-          <section className="mb-20">
-            {study.images.map((src) => (
-              <FullWidthImage
-                key={src}
-                src={src}
-                alt={`${project.title} — work`}
-              />
-            ))}
-          </section>
-        )}
+      <ImageShowcase
+        images={study.images}
+        alt={project.title}
+      />
 
+      <Container>
         <TextBlock title="Outcome" content={study.outcome} />
-
-        <section className="max-w-3xl mb-20">
-          <h2 className="mb-4 text-sm uppercase tracking-wider opacity-60">
-            Deliverables
-          </h2>
-          <ul className="space-y-2">
-            {study.assets.map((asset) => (
-              <li key={asset}>• {asset}</li>
-            ))}
-          </ul>
-        </section>
+        <Deliverables items={study.assets} />
+        <NextProject
+          slug={nextProject.slug}
+          title={nextProject.title}
+          category={nextProject.category}
+        />
       </Container>
     </main>
   );
