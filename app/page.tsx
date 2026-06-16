@@ -3,22 +3,19 @@ import Link from "next/link";
 import FeaturedWork from "@/components/FeaturedWork";
 import LogoScroller from "@/components/LogoScroller";
 import Capabilities from "@/components/Capabilities";
+import HeroFlip from "@/components/HeroFlip";
 
 export default function Home() {
   return (
     <main>
-      {/* Hero — base #111 */}
-      <section className="flex items-end min-h-[60vh] md:min-h-[100svh] pb-12 pt-24 md:pt-32">
-        <Container>
-          <h1 className="text-[18vw] font-medium leading-[0.9] tracking-tight">
-            Dishoom<br />Studio<span className="text-accent">.</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-base opacity-50 leading-relaxed">
-            Building distinctive brands and experiences through strategy,
-            design and storytelling.
-          </p>
-        </Container>
-      </section>
+{/* Hero */}
+<section className="md:min-h-[calc(100vh-73px)] flex flex-col justify-center px-6 lg:px-8 py-20 md:py-0">
+  <HeroFlip />
+  <p className="mt-6 max-w-xl text-base opacity-50 leading-relaxed">
+    Building distinctive brands and experiences through strategy,
+    design and storytelling.
+  </p>
+</section>
 
       {/* Logo Scroller — alt #0a0a0a */}
       <div className="bg-background-alt">
@@ -47,21 +44,23 @@ export default function Home() {
         <FeaturedWork />
       </section>
 
-      {/* Who we are — alt #0a0a0a */}
-      <section className="bg-background-alt py-32 border-t border-white/10">
-        <Container>
-          <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
-            Studio
-          </p>
-          <h2 className="text-6xl md:text-8xl font-medium tracking-tight leading-[1] mb-16">
-            Who we are
-          </h2>
-          <p className="max-w-2xl text-base opacity-50 leading-relaxed">
-            Dishoom Studio creates brands, digital experiences and apparel
-            systems that help organisations stand apart.
-          </p>
-        </Container>
-      </section>
+{/* Who we are — alt #0a0a0a */}
+<section className="bg-background-alt py-32 border-t border-white/10">
+  <Container>
+    <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
+      Studio
+    </p>
+    <h2 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1.1] mb-8 max-w-3xl">
+      We don't just design what you look like.
+      <br />
+      We define what you stand for.
+    </h2>
+    <p className="max-w-2xl text-base opacity-50 leading-relaxed">
+      Dishoom Studio creates brands, digital experiences and apparel
+      systems that help organisations stand apart.
+    </p>
+  </Container>
+</section>
 
       {/* Capabilities — base #111 */}
       <section className="py-32 border-t border-white/10">
