@@ -4,12 +4,14 @@ import FeaturedWork from "@/components/FeaturedWork";
 import LogoScroller from "@/components/LogoScroller";
 import Capabilities from "@/components/Capabilities";
 import HeroFlip from "@/components/HeroFlip";
+import GrainOverlay from "@/components/GrainOverlay";
 
 export default function Home() {
   return (
     <main>
 {/* Hero */}
-<section className="md:min-h-[calc(100vh-73px)] flex flex-col justify-center px-6 lg:px-8 py-20 md:py-0">
+<section className="relative md:min-h-[calc(100vh-73px)] flex flex-col justify-center px-6 lg:px-8 py-20 md:py-0 overflow-hidden">
+  <GrainOverlay />
   <HeroFlip />
   <p className="mt-6 max-w-xl text-base opacity-50 leading-relaxed">
     Building distinctive brands and experiences through strategy,
