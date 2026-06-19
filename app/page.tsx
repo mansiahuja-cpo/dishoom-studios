@@ -15,8 +15,7 @@ export default function Home() {
         <GrainOverlay />
         <HeroFlip />
         <p className="mt-6 max-w-xl text-base opacity-50 leading-relaxed">
-          Building distinctive brands and experiences through strategy,
-          design and storytelling.
+Building distinctive brands and meaningful experiences through strategy, design and storytelling.
         </p>
       </section>
 
@@ -46,9 +45,7 @@ export default function Home() {
           </Reveal>
         </Container>
 
-        <Reveal>
-          <FeaturedWork />
-        </Reveal>
+<FeaturedWork />
       </section>
 
       {/* Who we are — alt #0a0a0a */}
@@ -97,7 +94,7 @@ export default function Home() {
               A One Advisory
             </h2>
             <p className="max-w-xl text-sm opacity-40 leading-relaxed mb-12">
-              Strategic brand refresh for a credit rating advisory firm.
+              Helping a growing credit advisory firm build trust, clarity, and credibility across every touchpoint.
             </p>
             <Link
               href="/work/a-one-advisory"

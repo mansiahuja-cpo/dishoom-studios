@@ -14,7 +14,7 @@ export const caseStudies = {
       "/projects/a-one-advisory/aone-4.jpg",
       "/projects/a-one-advisory/brand-book.jpg",
       "/projects/a-one-advisory/collaterals-1.jpg",
-      "/projects/a-one-advisory/collaterals-2.jpg",
+      "/projects/a-one-advisory/collaterals-3.jpg",
       "/projects/a-one-advisory/event.jpg",
     ],
     assets: [

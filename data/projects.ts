@@ -14,7 +14,7 @@ export const projects = [
     category: "Performance Apparel",
     year: "2025",
     summary: "Race apparel system designed for endurance athletes.",
-    coverImage: "/projects/goa-ironman/hero.jpg",
+    coverImage: "/projects/a-one-advisory/hero.jpg",
     featured: true,
   },
   {
@@ -23,7 +23,7 @@ export const projects = [
     category: "School Wardrobe System",
     year: "2026",
     summary: "Uniform and wardrobe collection designed for modern school life.",
-    coverImage: "/projects/harvest-school/hero.jpg",
+    coverImage: "/projects/a-one-advisory/hero.jpg",
     featured: true,
   },
   {
@@ -32,7 +32,7 @@ export const projects = [
     category: "Event Branding & Merchandise",
     year: "2025",
     summary: "Event apparel and visual identity for one of India's leading marathons.",
-    coverImage: "/projects/tata-steel-marathon/hero.jpg",
+    coverImage: "/projects/a-one-advisory/hero.jpg",
     featured: true,
   },
   {
@@ -41,7 +41,7 @@ export const projects = [
     category: "Event Branding",
     year: "2026",
     summary: "Merchandise and event branding system for a trail running community.",
-    coverImage: "/projects/trail-o-thon/hero.jpg",
+    coverImage: "/projects/a-one-advisory/hero.jpg",
     featured: true,
   },
   {
@@ -50,7 +50,7 @@ export const projects = [
     category: "Performance Apparel",
     year: "2024",
     summary: "Custom cycling jersey inspired by doodle art and community culture.",
-    coverImage: "/projects/cng-cycling-jersey/hero.jpg",
+    coverImage: "/projects/a-one-advisory/hero.jpg",
     featured: true,
   },
 ];

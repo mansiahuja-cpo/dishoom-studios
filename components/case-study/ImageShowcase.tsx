@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
+import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 
 type ImageShowcaseProps = {
   images: string[];
@@ -12,7 +14,7 @@ export default function ImageShowcase({ images, alt }: ImageShowcaseProps) {
 
   return (
     <section className="mb-20">
-      <div className="mb-3">
+      <Reveal className="mb-3">
         <Image
           src={first}
           alt={alt}
@@ -20,21 +22,22 @@ export default function ImageShowcase({ images, alt }: ImageShowcaseProps) {
           height={1200}
           className="w-full h-[70vh] object-cover"
         />
-      </div>
+      </Reveal>
 
       {rest.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <RevealStagger className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {rest.map((src, i) => (
-            <Image
-              key={src}
-              src={src}
-              alt={`${alt} ${i + 2}`}
-              width={1000}
-              height={700}
-              className="w-full h-[50vh] object-cover"
-            />
+            <RevealItem key={src} index={i}>
+              <Image
+                src={src}
+                alt={`${alt} ${i + 2}`}
+                width={1000}
+                height={700}
+                className="w-full h-[50vh] object-cover"
+              />
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       )}
     </section>
   );

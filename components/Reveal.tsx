@@ -1,43 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+
+const EASE = [0.16, 1, 0.3, 1] as const; // ease-out-expo — fast start, long soft settle
 
 export default function Reveal({
   children,
   className = "",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
+  delay?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div
-      ref={ref}
-className={`transition-all duration-700 ease-out ${
-  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-} ${className}`}
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 56, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 1.1, ease: EASE, delay }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
