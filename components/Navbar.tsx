@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/work", label: "Work", prefetch: true },
   { href: "/about", label: "About", prefetch: false },
   { href: "/insights", label: "Insights", prefetch: true },
-  { href: "/contact", label: "Contact", prefetch: false },
+  { href: "/contact", label: "Contact", prefetch: true },
 ];
 
 export default function Navbar() {
