@@ -22,19 +22,16 @@ export default function IntroSplash() {
     }
 
     setShow(true);
-    document.body.style.overflow = "hidden";
 
     const exitTimer = setTimeout(() => setExiting(true), 1000);
     const removeTimer = setTimeout(() => {
       setShow(false);
-      document.body.style.overflow = "";
       sessionStorage.setItem(SESSION_KEY, "1");
     }, 1750);
 
     return () => {
       clearTimeout(exitTimer);
       clearTimeout(removeTimer);
-      document.body.style.overflow = "";
     };
   }, []);
 

@@ -25,7 +25,7 @@ export default function Navbar() {
             src="/dishoom.svg"
             alt="Dishoom Studio"
             width={120}
-            height={32}
+            height={18}
             priority
           />
         </Link>

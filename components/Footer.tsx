@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="flex flex-col md:flex-row md:justify-between gap-12 mb-16">
           <div>
-            <Image src="/dishoom.svg" alt="Dishoom Studio" width={100} height={28} className="mb-4" />
+            <Image src="/dishoom.svg" alt="Dishoom Studio" width={100} height={15} className="mb-4" />
             <p className="text-xs opacity-40">
-              © {new Date().getFullYear()} Dishoom Studio. All rights reserved.
+              Punched by Dishoom Studio © {new Date().getFullYear()}
             </p>
           </div>
 

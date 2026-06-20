@@ -19,6 +19,7 @@ export default function FeaturedWork() {
                 src={project.coverImage}
                 alt={project.title}
                 fill
+                sizes="(min-width: 768px) 33vw, 50vw"
                 className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
               />
             </div>
