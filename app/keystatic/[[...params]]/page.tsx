@@ -6,7 +6,7 @@ import keystaticConfig from "../../../keystatic.config";
 
 const KeystaticPage = makePage(keystaticConfig);
 
-class DiagnosticErrorBoundary extends Component<
+class KeystaticErrorBoundary extends Component<
   { children: ReactNode },
   { error: Error | null }
 > {
@@ -19,26 +19,16 @@ class DiagnosticErrorBoundary extends Component<
     return { error };
   }
 
-  componentDidCatch(error: Error, info: { componentStack?: string | null }) {
-    console.error("KEYSTATIC DIAGNOSTIC CAUGHT ERROR:", error);
-    console.error("COMPONENT STACK:", info.componentStack);
+  componentDidCatch(error: Error) {
+    console.error("Keystatic admin UI failed to render:", error);
   }
 
   render() {
     if (this.state.error) {
       return (
-        <div
-          style={{
-            padding: 40,
-            fontFamily: "monospace",
-            color: "red",
-            background: "white",
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          <h1>Keystatic threw an error (caught by diagnostic boundary):</h1>
-          <p>{this.state.error.message}</p>
-          <pre>{this.state.error.stack}</pre>
+        <div style={{ padding: 40, fontFamily: "sans-serif" }}>
+          <h1>Something went wrong loading the editor.</h1>
+          <p>Try refreshing the page. If this keeps happening, check the browser console for details.</p>
         </div>
       );
     }
@@ -48,8 +38,8 @@ class DiagnosticErrorBoundary extends Component<
 
 export default function Page() {
   return (
-    <DiagnosticErrorBoundary>
+    <KeystaticErrorBoundary>
       <KeystaticPage />
-    </DiagnosticErrorBoundary>
+    </KeystaticErrorBoundary>
   );
 }
