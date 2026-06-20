@@ -1,10 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error(
+        "Contact form error: RESEND_API_KEY is not set in the environment."
+      );
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Contact form is not yet configured. Please email us directly.",
+        },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
