@@ -28,7 +28,7 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </div>
 
       {/* Selected Work — base #111 */}
-      <section className="pt-32 pb-20 border-t border-white/10">
+      <section className="pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
         <Container>
           <Reveal>
             <div className="flex items-end justify-between mb-3">
@@ -52,7 +52,7 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </section>
 
       {/* Who we are — alt #0a0a0a */}
-      <section className="bg-background-alt pt-32 pb-20 border-t border-white/10">
+      <section className="bg-background-alt pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
         <Container>
           <Reveal>
             <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
@@ -72,7 +72,7 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </section>
 
       {/* Capabilities — base #111 */}
-      <section className="pt-32 pb-20 border-t border-white/10">
+      <section className="pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
         <Container>
           <Reveal>
             <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
@@ -87,7 +87,7 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </section>
 
       {/* Featured Case Study — alt #0a0a0a */}
-      <section className="bg-background-alt pt-32 pb-20 border-t border-white/10">
+      <section className="bg-background-alt pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
         <Container>
           <Reveal>
             <p className="text-xs uppercase tracking-widest opacity-40 mb-6">
@@ -110,7 +110,7 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </section>
 
       {/* Latest Thinking — base #111 */}
-      <section className="pt-32 pb-20 border-t border-white/10">
+      <section className="pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
         <Container>
           <Reveal>
             <div className="flex items-end justify-between mb-3">
@@ -144,7 +144,7 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </section>
 
 {/* Contact — alt #0a0a0a */}
-<section className="bg-background-alt pt-32 pb-32 border-t border-white/10">
+<section className="bg-background-alt pt-16 pb-16 md:pt-32 md:pb-32 border-t border-white/10">
   <Container>
     <Reveal>
       <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
