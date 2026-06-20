@@ -9,13 +9,13 @@ export default function SiteLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className="site-theme">
       <IntroSplash />
       <SmoothScrollProvider>
         <Navbar />
         {children}
         <Footer />
       </SmoothScrollProvider>
-    </>
+    </div>
   );
 }
