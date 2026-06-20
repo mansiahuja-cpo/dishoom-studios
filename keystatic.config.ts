@@ -7,10 +7,20 @@ export default config({
   collections: {
     projects: collection({
       label: "Projects",
-      slugField: "title",
+      slugField: "slug",
       path: "content/projects/*",
       schema: {
-        title: fields.text({ label: "Title" }),
+        slug: fields.slug({
+          name: {
+            label: "Title",
+            description: "Used as the project's display title.",
+          },
+          slug: {
+            label: "URL Slug",
+            description:
+              "Used in the page URL (/work/[slug]) and filename. Auto-generated from the title, but editable.",
+          },
+        }),
         category: fields.text({
           label: "Category",
           description:
@@ -39,10 +49,16 @@ export default config({
       slugField: "projectSlug",
       path: "content/case-studies/*",
       schema: {
-        projectSlug: fields.text({
-          label: "Project Slug",
-          description:
-            "Must exactly match the Project's slug (the project entry's filename) for this case study to attach correctly.",
+        projectSlug: fields.slug({
+          name: {
+            label: "Reference Name",
+            description: "Just for identifying this entry in the list.",
+          },
+          slug: {
+            label: "Project Slug",
+            description:
+              "Must exactly match the Project's URL slug for this case study to attach correctly.",
+          },
         }),
         challenge: fields.text({ label: "Challenge", multiline: true }),
         insight: fields.text({ label: "Insight", multiline: true }),
