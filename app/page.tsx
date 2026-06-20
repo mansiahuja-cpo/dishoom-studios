@@ -6,6 +6,7 @@ import Capabilities from "@/components/Capabilities";
 import HeroFlip from "@/components/HeroFlip";
 import GrainOverlay from "@/components/GrainOverlay";
 import Reveal from "@/components/Reveal";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -131,25 +132,20 @@ Building distinctive brands and meaningful experiences through strategy, design 
         </Container>
       </section>
 
-      {/* Contact — alt #0a0a0a */}
-      <section className="bg-background-alt py-32 border-t border-white/10">
-        <Container>
-          <Reveal>
-            <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
-              Contact
-            </p>
-            <h2 className="text-6xl md:text-[8vw] font-medium tracking-tight leading-[1] mb-12">
-              Have a project in mind<span className="text-accent">?</span>
-            </h2>
-            <Link
-              href="/contact"
-              className="text-xs uppercase tracking-widest opacity-40 hover:text-accent hover:opacity-100 transition-all"
-            >
-              Let's talk →
-            </Link>
-          </Reveal>
-        </Container>
-      </section>
+{/* Contact — alt #0a0a0a */}
+<section className="bg-background-alt py-32 border-t border-white/10">
+  <Container>
+    <Reveal>
+      <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
+        Contact
+      </p>
+      <h2 className="text-6xl md:text-[8vw] font-medium tracking-tight leading-[1] mb-12">
+        Have a project in mind<span className="text-accent">?</span>
+      </h2>
+      <ContactForm />
+    </Reveal>
+  </Container>
+</section>
     </main>
   );
 }
