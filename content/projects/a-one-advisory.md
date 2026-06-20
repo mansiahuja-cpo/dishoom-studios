@@ -2,7 +2,7 @@
 title: A One Advisory
 category: Brand Identity
 year: '2026'
-coverImage: hero.jpg
+coverImage: a-one-advisory/hero.jpg
 featured: true
 ---
 
