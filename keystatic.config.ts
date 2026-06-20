@@ -9,7 +9,6 @@ export default config({
       label: "Projects",
       slugField: "title",
       path: "content/projects/*",
-      format: { contentField: "summary" },
       schema: {
         title: fields.text({ label: "Title" }),
         category: fields.text({
@@ -27,8 +26,9 @@ export default config({
           label: "Show in homepage grid",
           defaultValue: true,
         }),
-        summary: fields.markdoc({
+        summary: fields.text({
           label: "Summary",
+          multiline: true,
           description:
             "Short one-line summary shown on the project card and case study hero.",
         }),
@@ -38,16 +38,15 @@ export default config({
       label: "Case Studies",
       slugField: "projectSlug",
       path: "content/case-studies/*",
-      format: { contentField: "outcome" },
       schema: {
         projectSlug: fields.text({
           label: "Project Slug",
           description:
             "Must exactly match the Project's slug (the project entry's filename) for this case study to attach correctly.",
         }),
-        challenge: fields.markdoc({ label: "Challenge" }),
-        insight: fields.markdoc({ label: "Insight" }),
-        approach: fields.markdoc({ label: "Approach" }),
+        challenge: fields.text({ label: "Challenge", multiline: true }),
+        insight: fields.text({ label: "Insight", multiline: true }),
+        approach: fields.text({ label: "Approach", multiline: true }),
         images: fields.array(
           fields.image({
             label: "Image",
@@ -67,7 +66,7 @@ export default config({
             itemLabel: (props) => props.value || "Deliverable",
           }
         ),
-        outcome: fields.markdoc({ label: "Outcome" }),
+        outcome: fields.text({ label: "Outcome", multiline: true }),
       },
     }),
   },
