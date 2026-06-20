@@ -10,7 +10,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 const navLinks = [
   { href: "/work", label: "Work", prefetch: true },
   { href: "/about", label: "About", prefetch: false },
-  { href: "/insights", label: "Insights", prefetch: false },
+  { href: "/insights", label: "Insights", prefetch: true },
   { href: "/contact", label: "Contact", prefetch: false },
 ];
 

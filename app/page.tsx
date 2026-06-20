@@ -6,7 +6,9 @@ import Capabilities from "@/components/Capabilities";
 import HeroFlip from "@/components/HeroFlip";
 import GrainOverlay from "@/components/GrainOverlay";
 import Reveal from "@/components/Reveal";
+import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 import ContactForm from "@/components/ContactForm";
+import { insights } from "@/data/insights";
 
 export default function Home() {
   return (
@@ -111,24 +113,33 @@ Building distinctive brands and meaningful experiences through strategy, design 
       <section className="py-32 border-t border-white/10">
         <Container>
           <Reveal>
-            <p className="text-xs uppercase tracking-widest opacity-40 mb-3">
-              Insights
-            </p>
+            <div className="flex items-end justify-between mb-3">
+              <p className="text-xs uppercase tracking-widest opacity-40">
+                Insights
+              </p>
+              <Link
+                href="/insights"
+                className="text-xs opacity-40 hover:text-accent hover:opacity-100 transition-all"
+              >
+                View all →
+              </Link>
+            </div>
             <h2 className="text-6xl md:text-8xl font-medium tracking-tight leading-[1] mb-16">
               Latest Thinking
             </h2>
-            <div className="space-y-8">
-              <p className="text-xl opacity-50 hover:opacity-100 hover:text-accent transition-all cursor-pointer">
-                Why strong brands outperform strong marketing.
-              </p>
-              <p className="text-xl opacity-50 hover:opacity-100 hover:text-accent transition-all cursor-pointer">
-                Designing for trust in financial services.
-              </p>
-              <p className="text-xl opacity-50 hover:opacity-100 hover:text-accent transition-all cursor-pointer">
-                What makes a memorable event identity.
-              </p>
-            </div>
           </Reveal>
+          <RevealStagger className="space-y-8">
+            {insights.slice(0, 3).map((post, index) => (
+              <RevealItem key={post.slug} index={index}>
+                <Link
+                  href={`/insights/${post.slug}`}
+                  className="block text-xl opacity-50 hover:opacity-100 hover:text-accent transition-all"
+                >
+                  {post.title}
+                </Link>
+              </RevealItem>
+            ))}
+          </RevealStagger>
         </Container>
       </section>
 
