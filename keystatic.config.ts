@@ -11,7 +11,7 @@ export default config({
       path: "content/projects/*",
       format: { contentField: "summary" },
       schema: {
-        title: fields.slug({ name: { label: "Title" } }),
+        title: fields.text({ label: "Title" }),
         category: fields.text({
           label: "Category",
           description:
@@ -36,16 +36,14 @@ export default config({
     }),
     caseStudies: collection({
       label: "Case Studies",
-      slugField: "slug",
+      slugField: "projectSlug",
       path: "content/case-studies/*",
       format: { contentField: "outcome" },
       schema: {
-        slug: fields.slug({
-          name: {
-            label: "Project Slug",
-            description:
-              "Must exactly match the Project's slug (the project entry's URL) for this case study to attach correctly.",
-          },
+        projectSlug: fields.text({
+          label: "Project Slug",
+          description:
+            "Must exactly match the Project's slug (the project entry's filename) for this case study to attach correctly.",
         }),
         challenge: fields.markdoc({ label: "Challenge" }),
         insight: fields.markdoc({ label: "Insight" }),
