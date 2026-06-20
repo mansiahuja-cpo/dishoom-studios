@@ -7,19 +7,19 @@ import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 
 export default function FeaturedWork() {
   return (
-    <RevealStagger className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/10">
+    <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-white/10">
       {projects.map((project, index) => (
         <RevealItem key={project.slug} index={index}>
           <Link
             href={`/work/${project.slug}`}
             className="group relative block overflow-hidden bg-black h-full"
           >
-            <div className="relative h-[30vw] md:h-[25vw] overflow-hidden">
+            <div className="relative h-[60vw] sm:h-[30vw] md:h-[25vw] overflow-hidden">
               <Image
                 src={project.coverImage}
                 alt={project.title}
                 fill
-                sizes="(min-width: 768px) 33vw, 50vw"
+                sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
               />
             </div>
