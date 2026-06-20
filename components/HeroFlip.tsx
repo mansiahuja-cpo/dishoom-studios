@@ -65,7 +65,7 @@ export default function HeroFlip() {
   }, [displayText, phase, wordIndex, currentWord, isStudio]);
 
   return (
-    <h1 className="text-[18vw] font-medium leading-[0.9] tracking-tight">
+    <h1 className="text-[22vw] font-medium leading-[0.9] tracking-tight">
       Dishoom
       <br />
 
