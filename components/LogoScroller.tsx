@@ -20,22 +20,22 @@ export default async function LogoScroller() {
 
   return (
     <section className="border-t border-b border-white/10 py-10 overflow-hidden">
-      <div className="flex animate-scroll gap-16 items-center">
+      <div className="flex animate-scroll gap-5 items-center">
         {items.map((item, i) =>
           hasLogos ? (
-            <div key={i} className="shrink-0 flex items-center gap-16">
-              <div className="relative h-12 w-36">
+            <div key={i} className="shrink-0 flex items-center gap-5">
+              <div className="relative h-18 w-54">
                 <Image
                   src={item as string}
                   alt="Client logo"
                   fill
-                  className="object-contain opacity-50"
+                  className="object-contain opacity-100"
                 />
               </div>
               <span className="text-accent text-xs">✦</span>
             </div>
           ) : (
-            <span key={i} className="flex items-center gap-16 shrink-0 whitespace-nowrap">
+            <span key={i} className="flex items-center gap-10 shrink-0 whitespace-nowrap">
               <span className="text-sm uppercase tracking-widest opacity-30 shrink-0">
                 {item as string}
               </span>
