@@ -16,6 +16,24 @@ export default config({
         }),
       },
     }),
+    clientLogos: singleton({
+      label: "Client Logos (Homepage Scroller)",
+      path: "content/settings/client-logos",
+      schema: {
+        logos: fields.array(
+          fields.image({
+            label: "Logo",
+            directory: "public/logos",
+            publicPath: "/logos/",
+            description: "Transparent PNG recommended.",
+          }),
+          {
+            label: "Logos",
+            itemLabel: () => "Logo",
+          }
+        ),
+      },
+    }),
   },
   collections: {
     projects: collection({
