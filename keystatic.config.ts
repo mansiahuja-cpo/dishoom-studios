@@ -1,8 +1,21 @@
-import { config, collection, fields } from "@keystatic/core";
+import { config, collection, singleton, fields } from "@keystatic/core";
 
 export default config({
   storage: {
     kind: "local",
+  },
+  singletons: {
+    featuredProject: singleton({
+      label: "Featured Project (Homepage)",
+      path: "content/settings/featured-project",
+      schema: {
+        slug: fields.text({
+          label: "Project Slug",
+          description:
+            'The URL slug of the project to feature on the homepage (e.g. "a-one-advisory"). Must exactly match one of the project entries.',
+        }),
+      },
+    }),
   },
   collections: {
     projects: collection({
@@ -11,21 +24,10 @@ export default config({
       path: "content/projects/*",
       schema: {
         slug: fields.slug({
-          name: {
-            label: "Title",
-            description: "Used as the project's display title.",
-          },
-          slug: {
-            label: "URL Slug",
-            description:
-              "Used in the page URL (/work/[slug]) and filename. Auto-generated from the title, but editable.",
-          },
+          name: { label: "Title" },
+          slug: { label: "URL Slug" },
         }),
-        category: fields.text({
-          label: "Category",
-          description:
-            'e.g. "Brand Identity", "Performance Apparel", "Event Branding"',
-        }),
+        category: fields.text({ label: "Category" }),
         year: fields.text({ label: "Year" }),
         coverImage: fields.image({
           label: "Cover Image",
@@ -39,42 +41,13 @@ export default config({
         summary: fields.text({
           label: "Summary",
           multiline: true,
-          description:
-            "Short one-line summary shown on the project card and case study hero.",
-        }),
-      },
-    }),
-    caseStudies: collection({
-      label: "Case Studies",
-      slugField: "projectSlug",
-      path: "content/case-studies/*",
-      schema: {
-        projectSlug: fields.slug({
-          name: {
-            label: "Reference Name",
-            description: "Just for identifying this entry in the list.",
-          },
-          slug: {
-            label: "Project Slug",
-            description:
-              "Must exactly match the Project's URL slug for this case study to attach correctly.",
-          },
+          description: "Short summary shown on the project card and detail page hero.",
         }),
         challenge: fields.text({ label: "Challenge", multiline: true }),
         insight: fields.text({ label: "Insight", multiline: true }),
         approach: fields.text({ label: "Approach", multiline: true }),
-        images: fields.array(
-          fields.image({
-            label: "Image",
-            directory: "public/projects",
-            publicPath: "/projects/",
-          }),
-          {
-            label: "Gallery Images",
-            itemLabel: () => "Image",
-          }
-        ),
-        assets: fields.array(
+        outcome: fields.text({ label: "Outcome", multiline: true }),
+        deliverables: fields.array(
           fields.text({ label: "Deliverable" }),
           {
             label: "Deliverables",
@@ -82,7 +55,6 @@ export default config({
             itemLabel: (props) => props.value || "Deliverable",
           }
         ),
-        outcome: fields.text({ label: "Outcome", multiline: true }),
       },
     }),
   },

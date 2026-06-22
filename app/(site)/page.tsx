@@ -9,8 +9,14 @@ import Reveal from "@/components/Reveal";
 import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 import ContactForm from "@/components/ContactForm";
 import { insights } from "@/data/insights";
+import { reader } from "@/lib/keystatic";
 
-export default function Home() {
+export default async function Home() {
+  const featuredSetting = await reader.singletons.featuredProject.read();
+  const featuredSlug = featuredSetting?.slug ?? "a-one-advisory";
+  const featuredProject = featuredSlug
+    ? await reader.collections.projects.read(featuredSlug)
+    : null;
   return (
     <main>
       {/* Hero */}
@@ -87,27 +93,31 @@ Building distinctive brands and meaningful experiences through strategy, design 
       </section>
 
       {/* Featured Case Study — alt #0a0a0a */}
-      <section className="bg-background-alt pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
-        <Container>
-          <Reveal>
-            <p className="text-xs uppercase tracking-widest opacity-40 mb-6">
-              Featured Case Study
-            </p>
-            <h2 className="text-6xl md:text-8xl font-medium tracking-tight leading-[1] mb-6">
-              A One Advisory
-            </h2>
-            <p className="max-w-xl text-sm opacity-40 leading-relaxed mb-12">
-              Helping a growing credit advisory firm build trust, clarity, and credibility across every touchpoint.
-            </p>
-            <Link
-              href="/work/a-one-advisory"
-              className="text-xs uppercase tracking-widest opacity-40 hover:text-accent hover:opacity-100 transition-all"
-            >
-              View Case Study →
-            </Link>
-          </Reveal>
-        </Container>
-      </section>
+      {featuredProject && (
+        <section className="bg-background-alt pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">
+          <Container>
+            <Reveal>
+              <p className="text-xs uppercase tracking-widest opacity-40 mb-6">
+                Featured Case Study
+              </p>
+              <h2 className="text-6xl md:text-8xl font-medium tracking-tight leading-[1] mb-6">
+                {featuredProject.slug}
+              </h2>
+              {featuredProject.summary && (
+                <p className="max-w-xl text-sm opacity-40 leading-relaxed mb-12">
+                  {featuredProject.summary}
+                </p>
+              )}
+              <Link
+                href={`/work/${featuredSlug}`}
+                className="text-xs uppercase tracking-widest opacity-40 hover:text-accent hover:opacity-100 transition-all"
+              >
+                View Case Study →
+              </Link>
+            </Reveal>
+          </Container>
+        </section>
+      )}
 
       {/* Latest Thinking — base #111 */}
       <section className="pt-16 pb-8 md:pt-32 md:pb-12 border-t border-white/10">

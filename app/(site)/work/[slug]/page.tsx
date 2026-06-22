@@ -1,13 +1,16 @@
 import Container from "@/components/Container";
-import { projects } from "@/data/projects";
-import { caseStudies } from "@/data/case-studies";
+import { reader } from "@/lib/keystatic";
 
 import Hero from "@/components/case-study/Hero";
 import TextBlock from "@/components/case-study/TextBlock";
 import FullWidthImage from "@/components/case-study/FullWidthImage";
-import ImageShowcase from "@/components/case-study/ImageShowcase";
 import Deliverables from "@/components/case-study/Deliverables";
 import NextProject from "@/components/case-study/NextProject";
+
+export async function generateStaticParams() {
+  const projects = await reader.collections.projects.all();
+  return projects.map((p) => ({ slug: p.slug }));
+}
 
 export default async function CaseStudy({
   params,
@@ -15,6 +18,7 @@ export default async function CaseStudy({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const projects = await reader.collections.projects.all();
 
   const projectIndex = projects.findIndex((p) => p.slug === slug);
   const project = projects[projectIndex];
@@ -27,9 +31,10 @@ export default async function CaseStudy({
     );
   }
 
-  const study = caseStudies[slug as keyof typeof caseStudies];
+  const { entry } = project;
+  const hasDetail = entry.challenge || entry.insight || entry.approach || entry.outcome;
 
-  if (!study) {
+  if (!hasDetail) {
     return (
       <Container>
         <h1>Case study coming soon</h1>
@@ -43,35 +48,31 @@ export default async function CaseStudy({
     <main className="pb-24">
       <Container>
         <Hero
-          category={project.category}
-          title={project.title}
-          summary={study.summary}
+          category={entry.category ?? ""}
+          title={entry.slug}
+          summary={entry.summary ?? ""}
         />
       </Container>
 
-      <FullWidthImage
-        src={project.coverImage}
-        alt={`${project.title} — cover`}
-      />
+      {entry.coverImage && (
+        <FullWidthImage
+          src={entry.coverImage}
+          alt={`${entry.slug} — cover`}
+        />
+      )}
 
       <Container>
-        <TextBlock title="Challenge" content={study.challenge} />
-        <TextBlock title="Insight" content={study.insight} />
-        <TextBlock title="Approach" content={study.approach} />
-      </Container>
-
-      <ImageShowcase
-        images={study.images}
-        alt={project.title}
-      />
-
-      <Container>
-        <TextBlock title="Outcome" content={study.outcome} />
-        <Deliverables items={study.assets} />
+        {entry.challenge && <TextBlock title="Challenge" content={entry.challenge} />}
+        {entry.insight && <TextBlock title="Insight" content={entry.insight} />}
+        {entry.approach && <TextBlock title="Approach" content={entry.approach} />}
+        {entry.outcome && <TextBlock title="Outcome" content={entry.outcome} />}
+        {entry.deliverables && entry.deliverables.length > 0 && (
+          <Deliverables items={[...entry.deliverables]} />
+        )}
         <NextProject
           slug={nextProject.slug}
-          title={nextProject.title}
-          category={nextProject.category}
+          title={nextProject.entry.slug}
+          category={nextProject.entry.category ?? ""}
         />
       </Container>
     </main>

@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { reader } from "@/lib/keystatic";
 import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 
-export default function ProjectList() {
+export default async function ProjectList() {
+  const projects = await reader.collections.projects.all();
+
   return (
     <RevealStagger className="divide-y divide-white/10">
       {projects.map((project, index) => (
@@ -13,10 +15,10 @@ export default function ProjectList() {
           >
             <div>
               <h3 className="text-4xl md:text-6xl font-medium tracking-tight leading-[1] mb-2 group-hover:text-accent transition-colors duration-300">
-                {project.title}
+                {project.entry.slug}
               </h3>
               <p className="text-xs uppercase tracking-widest opacity-40">
-                {project.category}
+                {project.entry.category}
               </p>
             </div>
 
