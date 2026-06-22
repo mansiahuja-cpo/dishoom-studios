@@ -24,7 +24,7 @@ export default async function LogoScroller() {
         {items.map((item, i) =>
           hasLogos ? (
             <div key={i} className="shrink-0 flex items-center gap-16">
-              <div className="relative h-8 w-24">
+              <div className="relative h-12 w-36">
                 <Image
                   src={item as string}
                   alt="Client logo"
