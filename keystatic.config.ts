@@ -46,15 +46,6 @@ export default config({
         challenge: fields.text({ label: "Challenge", multiline: true }),
         insight: fields.text({ label: "Insight", multiline: true }),
         approach: fields.text({ label: "Approach", multiline: true }),
-        outcome: fields.text({ label: "Outcome", multiline: true }),
-        deliverables: fields.array(
-          fields.text({ label: "Deliverable" }),
-          {
-            label: "Deliverables",
-            description: 'e.g. "Brand Strategy & Positioning"',
-            itemLabel: (props) => props.value || "Deliverable",
-          }
-        ),
         images: fields.array(
           fields.image({
             label: "Image",
@@ -64,6 +55,15 @@ export default config({
           {
             label: "Project Images",
             itemLabel: () => "Image",
+          }
+        ),
+        outcome: fields.text({ label: "Outcome", multiline: true }),
+        deliverables: fields.array(
+          fields.text({ label: "Deliverable" }),
+          {
+            label: "Deliverables",
+            description: 'e.g. "Brand Strategy & Positioning"',
+            itemLabel: (props) => props.value || "Deliverable",
           }
         ),
       },
