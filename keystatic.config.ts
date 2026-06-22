@@ -55,6 +55,17 @@ export default config({
             itemLabel: (props) => props.value || "Deliverable",
           }
         ),
+        images: fields.array(
+          fields.image({
+            label: "Image",
+            directory: "public/projects",
+            publicPath: "/projects/",
+          }),
+          {
+            label: "Project Images",
+            itemLabel: () => "Image",
+          }
+        ),
       },
     }),
   },

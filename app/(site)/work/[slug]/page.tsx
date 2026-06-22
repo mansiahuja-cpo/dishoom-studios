@@ -4,6 +4,7 @@ import { reader } from "@/lib/keystatic";
 import Hero from "@/components/case-study/Hero";
 import TextBlock from "@/components/case-study/TextBlock";
 import FullWidthImage from "@/components/case-study/FullWidthImage";
+import ImageShowcase from "@/components/case-study/ImageShowcase";
 import Deliverables from "@/components/case-study/Deliverables";
 import NextProject from "@/components/case-study/NextProject";
 
@@ -65,6 +66,16 @@ export default async function CaseStudy({
         {entry.challenge && <TextBlock title="Challenge" content={entry.challenge} />}
         {entry.insight && <TextBlock title="Insight" content={entry.insight} />}
         {entry.approach && <TextBlock title="Approach" content={entry.approach} />}
+      </Container>
+
+      {entry.images && entry.images.length > 0 && (
+        <ImageShowcase
+          images={[...entry.images] as string[]}
+          alt={entry.slug}
+        />
+      )}
+
+      <Container>
         {entry.outcome && <TextBlock title="Outcome" content={entry.outcome} />}
         {entry.deliverables && entry.deliverables.length > 0 && (
           <Deliverables items={[...entry.deliverables]} />
