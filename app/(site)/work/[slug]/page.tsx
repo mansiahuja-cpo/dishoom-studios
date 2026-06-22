@@ -66,6 +66,7 @@ export default async function CaseStudy({
         {entry.challenge && <TextBlock title="Challenge" content={entry.challenge} />}
         {entry.insight && <TextBlock title="Insight" content={entry.insight} />}
         {entry.approach && <TextBlock title="Approach" content={entry.approach} />}
+        {entry.outcome && <TextBlock title="Outcome" content={entry.outcome} />}
       </Container>
 
       {entry.images && entry.images.length > 0 && (
@@ -76,7 +77,6 @@ export default async function CaseStudy({
       )}
 
       <Container>
-        {entry.outcome && <TextBlock title="Outcome" content={entry.outcome} />}
         {entry.deliverables && entry.deliverables.length > 0 && (
           <Deliverables items={[...entry.deliverables]} />
         )}

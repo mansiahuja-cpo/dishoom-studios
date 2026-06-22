@@ -46,6 +46,7 @@ export default config({
         challenge: fields.text({ label: "Challenge", multiline: true }),
         insight: fields.text({ label: "Insight", multiline: true }),
         approach: fields.text({ label: "Approach", multiline: true }),
+        outcome: fields.text({ label: "Outcome", multiline: true }),
         images: fields.array(
           fields.image({
             label: "Image",
@@ -57,7 +58,6 @@ export default config({
             itemLabel: () => "Image",
           }
         ),
-        outcome: fields.text({ label: "Outcome", multiline: true }),
         deliverables: fields.array(
           fields.text({ label: "Deliverable" }),
           {
