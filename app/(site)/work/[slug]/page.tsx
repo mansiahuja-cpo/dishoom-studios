@@ -19,7 +19,8 @@ export default async function CaseStudy({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const projects = await reader.collections.projects.all();
+  const allProjects = await reader.collections.projects.all();
+  const projects = [...allProjects].sort((a, b) => (a.entry.order ?? 99) - (b.entry.order ?? 99));
 
   const projectIndex = projects.findIndex((p) => p.slug === slug);
   const project = projects[projectIndex];
