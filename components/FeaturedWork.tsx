@@ -5,7 +5,9 @@ import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 
 export default async function FeaturedWork() {
   const projects = await reader.collections.projects.all();
-  const featured = projects.filter((p) => p.entry.featured);
+  const featured = [...projects]
+    .sort((a, b) => (a.entry.order ?? 99) - (b.entry.order ?? 99))
+    .filter((p) => p.entry.featured);
 
   return (
     <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-white/10">

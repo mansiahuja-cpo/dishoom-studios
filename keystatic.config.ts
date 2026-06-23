@@ -56,6 +56,11 @@ export default config({
           label: "Show in homepage grid",
           defaultValue: true,
         }),
+        order: fields.number({
+          label: "Display Order",
+          description: "Controls the order projects appear on the site. Lower number = appears first.",
+          defaultValue: 99,
+        }),
         summary: fields.text({
           label: "Summary",
           multiline: true,

@@ -4,10 +4,11 @@ import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 
 export default async function ProjectList() {
   const projects = await reader.collections.projects.all();
+  const sorted = [...projects].sort((a, b) => (a.entry.order ?? 99) - (b.entry.order ?? 99));
 
   return (
     <RevealStagger className="divide-y divide-white/10">
-      {projects.map((project, index) => (
+      {sorted.map((project, index) => (
         <RevealItem key={project.slug} index={index}>
           <Link
             href={`/work/${project.slug}`}
