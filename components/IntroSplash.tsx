@@ -53,7 +53,7 @@ export default function IntroSplash() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
           >
-            Dishoom Studio
+            Dishoom Studio.
           </motion.p>
         </motion.div>
       )}

@@ -47,7 +47,7 @@ export default function Footer() {
       </div>
 
       <p className="w-full text-center text-[9vw] font-medium leading-none tracking-tight text-white/5 select-none m-0 overflow-hidden whitespace-nowrap">
-        Dishoom Studio
+        Dishoom Studio.
       </p>
     </footer>
   );
