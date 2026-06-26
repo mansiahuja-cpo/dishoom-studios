@@ -8,7 +8,6 @@ import GrainOverlay from "@/components/GrainOverlay";
 import Reveal from "@/components/Reveal";
 import { RevealStagger, RevealItem } from "@/components/RevealStagger";
 import ContactForm from "@/components/ContactForm";
-import { insights } from "@/data/insights";
 import { reader } from "@/lib/keystatic";
 
 export default async function Home() {
@@ -17,6 +16,18 @@ export default async function Home() {
   const featuredProject = featuredSlug
     ? await reader.collections.projects.read(featuredSlug)
     : null;
+
+  const featuredInsightsSetting = await reader.singletons.featuredInsights.read();
+  const featuredInsightSlugs = featuredInsightsSetting?.articles ?? [];
+  const featuredInsights = (
+    await Promise.all(
+      featuredInsightSlugs.slice(0, 3).map((slug) =>
+        reader.collections.insights.read(slug).then((entry) =>
+          entry ? { slug, entry } : null
+        )
+      )
+    )
+  ).filter(Boolean) as { slug: string; entry: { slug: string } }[];
   return (
     <main>
       {/* Hero */}
@@ -139,13 +150,13 @@ Building distinctive brands and meaningful experiences through strategy, design 
             </h2>
           </Reveal>
           <RevealStagger className="space-y-8">
-            {insights.slice(0, 3).map((post, index) => (
+            {featuredInsights.map((post, index) => (
               <RevealItem key={post.slug} index={index}>
                 <Link
                   href={`/insights/${post.slug}`}
                   className="block text-xl opacity-50 hover:opacity-100 hover:text-accent transition-all"
                 >
-                  {post.title}
+                  {post.entry.slug}
                 </Link>
               </RevealItem>
             ))}

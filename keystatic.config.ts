@@ -34,8 +34,50 @@ export default config({
         ),
       },
     }),
+    featuredInsights: singleton({
+      label: "Featured Insights (Homepage)",
+      path: "content/settings/featured-insights",
+      schema: {
+        articles: fields.array(
+          fields.text({
+            label: "Article Slug",
+            description: "Must exactly match an Insights article slug.",
+          }),
+          {
+            label: "Featured Articles (pick 3)",
+            description: "The 3 articles shown in the Latest Thinking section on the homepage.",
+            itemLabel: (props) => props.value || "Article slug",
+          }
+        ),
+      },
+    }),
   },
   collections: {
+    insights: collection({
+      label: "Insights",
+      slugField: "slug",
+      path: "content/insights/*",
+      format: { contentField: "content" },
+      schema: {
+        slug: fields.slug({
+          name: { label: "Title" },
+          slug: { label: "URL Slug" },
+        }),
+        category: fields.text({ label: "Category" }),
+        date: fields.text({ label: "Date", description: 'e.g. "2026"' }),
+        excerpt: fields.text({ label: "Excerpt", multiline: true }),
+        coverImage: fields.image({
+          label: "Cover Image",
+          directory: "public/insights",
+          publicPath: "/insights/",
+        }),
+        content: fields.document({
+          label: "Content",
+          formatting: true,
+          links: true,
+        }),
+      },
+    }),
     projects: collection({
       label: "Projects",
       slugField: "slug",

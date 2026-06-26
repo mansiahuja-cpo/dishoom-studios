@@ -1,8 +1,13 @@
 import Container from "@/components/Container";
-import { insights } from "@/data/insights";
+import { reader } from "@/lib/keystatic";
+import { DocumentRenderer } from "@keystatic/core/renderer";
 import FullWidthImage from "@/components/case-study/FullWidthImage";
-import TextBlock from "@/components/case-study/TextBlock";
 import Hero from "@/components/case-study/Hero";
+
+export async function generateStaticParams() {
+  const articles = await reader.collections.insights.all();
+  return articles.map((a) => ({ slug: a.slug }));
+}
 
 export default async function InsightArticle({
   params,
@@ -10,8 +15,7 @@ export default async function InsightArticle({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
-  const post = insights.find((p) => p.slug === slug);
+  const post = await reader.collections.insights.read(slug);
 
   if (!post) {
     return (
@@ -21,26 +25,26 @@ export default async function InsightArticle({
     );
   }
 
+  const content = await post.content();
+
   return (
     <main className="pb-24">
       <Container>
         <Hero
-          category={post.category}
-          title={post.title}
-          summary={post.excerpt}
+          category={post.category ?? ""}
+          title={post.slug}
+          summary={post.excerpt ?? ""}
         />
       </Container>
 
-      <FullWidthImage src={post.coverImage} alt={`${post.title} — cover`} />
+      {post.coverImage && (
+        <FullWidthImage src={post.coverImage} alt={post.slug} />
+      )}
 
       <Container>
-        {post.content.map((paragraph, i) => (
-          <TextBlock
-            key={i}
-            title={i === 0 ? post.date : ""}
-            content={paragraph}
-          />
-        ))}
+        <div className="max-w-3xl mx-auto mt-20 prose prose-invert prose-lg">
+          <DocumentRenderer document={content} />
+        </div>
       </Container>
     </main>
   );
