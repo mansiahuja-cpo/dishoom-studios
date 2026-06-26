@@ -1,8 +1,26 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import { reader } from "@/lib/keystatic";
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import FullWidthImage from "@/components/case-study/FullWidthImage";
 import Hero from "@/components/case-study/Hero";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await reader.collections.insights.read(slug);
+  if (!post) return {};
+  return {
+    title: post.slug,
+    description: post.excerpt ?? undefined,
+    openGraph: post.coverImage
+      ? { images: [{ url: post.coverImage }] }
+      : undefined,
+  };
+}
 
 export async function generateStaticParams() {
   const articles = await reader.collections.insights.all();

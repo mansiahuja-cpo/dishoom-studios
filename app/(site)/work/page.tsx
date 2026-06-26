@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import ProjectList from "@/components/ProjectList";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description: "Selected projects by Dishoom Studio — brand identity, performance apparel, event branding and more.",
+};
 
 
 export default function WorkPage() {

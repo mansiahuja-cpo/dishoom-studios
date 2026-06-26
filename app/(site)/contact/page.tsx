@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Dishoom Studio. Start a project or just say hello at hello@dishoomstudio.com.",
+};
 
 export default function ContactPage() {
   return (

@@ -13,9 +13,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dishoom Studios",
+  title: {
+    default: "Dishoom Studio",
+    template: "%s — Dishoom Studio",
+  },
   description:
     "Building distinctive brands and experiences through strategy, design and storytelling.",
+  openGraph: {
+    type: "website",
+    siteName: "Dishoom Studio",
+    title: "Dishoom Studio",
+    description:
+      "Building distinctive brands and experiences through strategy, design and storytelling.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Dishoom Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dishoom Studio",
+    description:
+      "Building distinctive brands and experiences through strategy, design and storytelling.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/fav.png",
+  },
 };
 
 export default function RootLayout({

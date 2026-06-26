@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import { reader } from "@/lib/keystatic";
 
@@ -7,6 +8,23 @@ import FullWidthImage from "@/components/case-study/FullWidthImage";
 import ImageShowcase from "@/components/case-study/ImageShowcase";
 import Deliverables from "@/components/case-study/Deliverables";
 import NextProject from "@/components/case-study/NextProject";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await reader.collections.projects.read(slug);
+  if (!project) return {};
+  return {
+    title: project.slug,
+    description: project.summary ?? undefined,
+    openGraph: project.coverImage
+      ? { images: [{ url: project.coverImage }] }
+      : undefined,
+  };
+}
 
 export async function generateStaticParams() {
   const projects = await reader.collections.projects.all();

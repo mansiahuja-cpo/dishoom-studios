@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import Link from "next/link";
 import FeaturedWork from "@/components/FeaturedWork";
 import LogoScroller from "@/components/LogoScroller";
 import Capabilities from "@/components/Capabilities";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Dishoom Studio is a brand and design studio building distinctive identities for organisations that want to be recognised, trusted, and remembered.",
+};
 import HeroFlip from "@/components/HeroFlip";
 import GrainOverlay from "@/components/GrainOverlay";
 import Reveal from "@/components/Reveal";

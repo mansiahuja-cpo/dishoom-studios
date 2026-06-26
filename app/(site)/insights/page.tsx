@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import InsightsList from "@/components/InsightsList";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Insights",
+  description: "Perspectives on brand strategy, identity systems, and the work of building organisations people recognise, trust, and connect with.",
+};
 
 export default function InsightsPage() {
   return (
