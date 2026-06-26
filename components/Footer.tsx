@@ -12,7 +12,6 @@ export default function Footer() {
               Punched by Dishoom Studio © {new Date().getFullYear()}
             </p>
           </div>
-
           <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
             <div>
               <p className="text-xs uppercase tracking-widest opacity-40 mb-4">Pages</p>
@@ -24,16 +23,15 @@ export default function Footer() {
                 <Link href="/contact" className="opacity-60 hover:opacity-100 hover:text-accent transition-all">Contact</Link>
               </div>
             </div>
-
             <div>
               <p className="text-xs uppercase tracking-widest opacity-40 mb-4">Social</p>
-              <div className="flex flex-col gap-2 text-sm">
-                <Link href="https://instagram.com" className="opacity-60 hover:opacity-100 hover:text-accent transition-all">Instagram</Link>
-                <Link href="https://linkedin.com" className="opacity-60 hover:opacity-100 hover:text-accent transition-all">LinkedIn</Link>
-                <Link href="https://behance.net" className="opacity-60 hover:opacity-100 hover:text-accent transition-all">Behance</Link>
-              </div>
+              <a href="https://www.instagram.com/dishoom.studio/" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 hover:text-accent transition-all inline-block" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                </svg>
+              </a>
             </div>
-
             <div>
               <p className="text-xs uppercase tracking-widest opacity-40 mb-4">Contact</p>
               <div className="flex flex-col gap-2 text-sm">
@@ -45,7 +43,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
       <p className="w-full text-center text-[9vw] font-medium leading-none tracking-tight text-white/5 select-none m-0 overflow-hidden whitespace-nowrap">
         Dishoom Studio.
       </p>
