@@ -33,16 +33,29 @@ html, body {
 }
 
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-scroll {
-  animation: scroll 20s linear infinite;
+  width: max-content;
+  animation: scroll 16s linear infinite;
 }
 
-.animate-scroll:hover {
-  animation-play-state: paused;
+@media (min-width: 768px) {
+  .animate-scroll {
+    animation-duration: 20s;
+  }
+}
+
+@media (hover: hover) {
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes char-in {
